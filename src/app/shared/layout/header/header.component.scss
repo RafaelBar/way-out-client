@@ -1,7 +1,28 @@
-@import "../colorPalette.scss";
+@import "../../../../styles/base/colorPalette.scss";
 
 header{
     background-color: $primary-blue;
+    nav{
+        padding-bottom: 13px;
+        padding-top: 11px;
+        border-bottom: 1px solid $primary-dark-blue;
+        align-items: stretch;
+        .navbar-brand{
+            padding: 0;
+            margin-top: -4px;
+            margin-right: 73px;
+        }
+        .menu-icon{
+            margin-bottom: -13px;
+            margin-top: -11px;
+            display: flex;
+            align-items: center;
+            width: 60px;
+            justify-content: center;
+            border-right: 1px solid $primary-dark-blue;
+            border-left: 1px solid $primary-dark-blue;
+        }
+    }
     #navbarSupportedContent{
         justify-content: flex-end;
         padding-right: 20px;
@@ -31,7 +52,7 @@ header{
             .custume-progress-bar{
                 padding-top: 6px;
                 .progress-line{
-                    background-color: $progress-dark-blue;
+                    background-color: $primary-dark-blue;
                     width: 165px;
                     height:7px;
                     position:relative;

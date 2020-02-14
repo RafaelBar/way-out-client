@@ -1,4 +1,9 @@
+@import "../../../../styles/base/colorPalette.scss";
+
 main{
-    display: flex;
-    background-color: #ccc;
+    background-color: $primary-blue;
+
+    .mainContainer{
+        padding: 0 40px;
+    }
 }
