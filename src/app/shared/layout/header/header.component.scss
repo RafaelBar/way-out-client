@@ -1,0 +1,54 @@
+@import "../colorPalette.scss";
+
+header{
+    background-color: $primary-blue;
+    #navbarSupportedContent{
+        justify-content: flex-end;
+        padding-right: 20px;
+        .right-side-menu{
+            & > *{
+                display: flex;
+                vertical-align: center;
+                align-items: center;
+                margin: 0 10px;
+            }
+            .dropdown{
+                #dropdownMenuButton{
+                    background: none;
+                    border: none;
+                    box-shadow: none;
+                    color:$text-bright;
+                }
+                .dropdown-menu{
+                    min-width: auto;
+                }
+            }
+            .burger-menu-right{
+                img{
+                    padding-top: 6px;
+                }
+            }
+            .custume-progress-bar{
+                padding-top: 6px;
+                .progress-line{
+                    background-color: $progress-dark-blue;
+                    width: 165px;
+                    height:7px;
+                    position:relative;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    &:after{
+                        content:"";
+                        position: absolute;
+                        left:0;
+                        right:30%;
+                        top:0;
+                        bottom: 0;
+                        background-color: $light-blue;
+                    }
+                }
+            }
+        }
+        
+    }
+}
