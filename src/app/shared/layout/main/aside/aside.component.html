@@ -1,47 +1,62 @@
 <aside>
     <nav id="sidebar">
         <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
+            <div class="image-circle"></div>
+            <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle dropdownButtonStyle" type="button" id="dropdownAsideButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      My Home
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownButtonStyle">
+                      <a class="dropdown-item" href="#">Action1</a>
+                      <a class="dropdown-item" href="#">Action2</a>
+                      <a class="dropdown-item" href="#">Action3</a>
+                    </div>
+            </div>
+            <p class="smart-home-name">9898 Trent Bypass Suite 541</p>
         </div>
 
         <ul class="list-unstyled components">
-            <p>Dummy Heading</p>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Home 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Home 3</a>
-                    </li>
-                </ul>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_home.png"/>
+                </div>
+                <a class="col" href="#">Overview</a>
             </li>
-            <li>
-                <a href="#">About</a>
+            <li class="row active">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_devices.png"/>
+                </div>
+                <a href="#">Devices</a>
             </li>
-            <li>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                     <img src="../../../../../assets/images/icon_analytics.png"/>
+                </div>
+                <a href="#">Analytics</a>
             </li>
-            <li>
-                <a href="#">Portfolio</a>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_rules.png"/>
+                </div>
+                <a href="#">Rules</a>
             </li>
-            <li>
-                <a href="#">Contact</a>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_gallery.png"/>
+                </div>
+                <a href="#">Gallery</a>
+            </li>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_history.png"/>
+                </div>
+                <a href="#">History</a>
+            </li>
+            <li class="row">
+                <div class="img-wrapper col-auto">
+                    <img src="../../../../../assets/images/icon_settings.png"/>
+                </div>
+                <a href="#">Settings</a>
             </li>
         </ul>
     </nav>

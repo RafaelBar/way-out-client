@@ -1,6 +1,6 @@
-import { RoutersList } from './../../models/routersList.model';
+import { Device } from './../../models/device.model';
 import { Component, OnInit } from '@angular/core';
-import { RoutersListService } from 'src/app/shared/services/routersList.service';
+import { DeviceService } from 'src/app/shared/services/device.service';
 
 
 @Component({
@@ -9,13 +9,13 @@ import { RoutersListService } from 'src/app/shared/services/routersList.service'
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-  routersData: RoutersList;
-  constructor(private routersService: RoutersListService, private routersList: RoutersList) { }
+  device: Device;
+  constructor(private routersService: DeviceService) { }
 
   ngOnInit(): void {
     this.routersService.getAllRouters().subscribe((res)=>{
-      this.routersData = res;
-      console.log(this.routersData);
+      this.device = res;
+      console.log(this.device);
     });
   }
 

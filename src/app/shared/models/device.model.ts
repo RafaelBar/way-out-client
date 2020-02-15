@@ -1,5 +1,5 @@
 
-export class RoutersList{
+export class Device{
     name: string;
     author: string;
     reviews: number;

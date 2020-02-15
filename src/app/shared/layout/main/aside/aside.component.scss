@@ -1,4 +1,5 @@
 @import "../../../../../styles/base/colorPalette.scss";
+@import "../../../../../styles/base/mixin.scss";
 
 aside{
     display: flex;
@@ -9,34 +10,60 @@ aside{
         min-width: 250px;
         max-width: 250px;
         min-height: 100vh;
-        //background: #7386D5;
         color: #fff;
         transition: all 0.3s;
         .sidebar-header {
+            @include Header(white);
             padding: 20px;
-            //background: #6d7fcc;
+            @include dropdown($light-blue);
+            .image-circle{
+                background-image: url("../../../../../assets/images/home.png");
+                border-radius:10em;
+                height: 110px;
+                width: 110px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                margin: 0 auto;
+            }
         }
         ul{
-            ul{
-                a{
-                    font-size: 0.9em !important;
-                    padding-left: 30px !important;
-                    //background: #6d7fcc;
-                }
-            }
-            &.components {
-                padding: 20px 0;
-                //border-bottom: 1px solid #47748b;
-            }
-            p {
-                color: #fff;
-                padding: 10px;
-            }
             li{
+                width: 100%;
+                padding-left: 32px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                position: relative;
+                &.row{
+                    margin-left:0;
+                }
                 &:active{
                     & > a{
-                        color: #fff;
-                        //background: #6d7fcc;
+                        color: $light-blue;
+                    }
+                }
+                &.active{
+                    background-color: $sidebar-dark-blue;
+                    border-radius: 10px;
+                    & > a{
+                        color:$light-blue;
+                    }
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        left:0;
+                        top:0;
+                        bottom:0;
+                        width: 8px;
+                        background-color: $light-blue;
+                    }
+                }
+                .img-wrapper{
+                    display: flex;
+                    justify-content: center;
+                    padding: 0;
+                    width: 45px;
+                    img{
+                        margin:auto;
                     }
                 }
                 a{
@@ -44,8 +71,7 @@ aside{
                     font-size: 1.1em;
                     display: block;
                     &:hover{
-                        color: #7386D5;
-                        //background: #fff;
+                        color: $light-blue;
                     }
                 }
             }
@@ -55,22 +81,6 @@ aside{
                 color: inherit;
                 text-decoration: none;
                 transition: all 0.3s;
-            }
-            &[aria-expanded="true"]{
-                color: #fff;
-                //background: #6d7fcc;
-            }
-            &[data-toggle="collapse"] {
-                position: relative;
-                .dropdown-toggle{
-                    &::after{
-                        display: block;
-                        position: absolute;
-                        top: 50%;
-                        right: 20px;
-                        transform: translateY(-50%);
-                    }
-                }
             }
         }
     }

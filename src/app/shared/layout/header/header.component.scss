@@ -1,4 +1,5 @@
 @import "../../../../styles/base/colorPalette.scss";
+@import "../../../../styles/base/mixin.scss";
 
 header{
     background-color: $primary-blue;
@@ -33,17 +34,9 @@ header{
                 align-items: center;
                 margin: 0 10px;
             }
-            .dropdown{
-                #dropdownMenuButton{
-                    background: none;
-                    border: none;
-                    box-shadow: none;
-                    color:$text-bright;
-                }
-                .dropdown-menu{
-                    min-width: auto;
-                }
-            }
+
+            @include dropdown($text-bright);
+
             .burger-menu-right{
                 img{
                     padding-top: 6px;
@@ -51,6 +44,8 @@ header{
             }
             .custume-progress-bar{
                 padding-top: 6px;
+                margin-left: 0;
+                margin-right: 55px;
                 .progress-line{
                     background-color: $primary-dark-blue;
                     width: 165px;

@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class RoutersListService {
+export class DeviceService {
   routers: any = [];
   constructor(private httpClient: HttpClient) { 
   }
