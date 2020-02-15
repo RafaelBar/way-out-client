@@ -1,0 +1,14 @@
+@import "../../styles/base/colorPalette.scss";
+@import "../../styles/base/mixin.scss";
+
+.homeblock{
+    @include Header($text-bright);
+    .row{
+        h1{
+            
+        }
+        .addDeviceButton{
+
+        }
+    }
+}

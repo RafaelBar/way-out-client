@@ -10,6 +10,7 @@ import { AsideComponent } from './shared/layout/main/aside/aside.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
+import { DeviceComponent } from './home/device/device.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     MainComponent,
     AsideComponent,
-    HomeComponent
+    HomeComponent,
+    DeviceComponent
   ],
   imports: [
     BrowserModule,
