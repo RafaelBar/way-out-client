@@ -1,33 +1,22 @@
-import { Device } from './shared/models/device.model';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './shared/layout/header/header.component';
-import { MainComponent } from './shared/layout/main/main.component';
-import { AsideComponent } from './shared/layout/main/aside/aside.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
-import { DeviceComponent } from './home/device/device.component';
+import { SharedModule } from "./shared/shared.module";
+import { DevicesModule } from "./devices/devices.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    MainComponent,
-    AsideComponent,
-    HomeComponent,
-    DeviceComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule,
-    HttpClientModule
+    SharedModule,
+    DevicesModule
   ],
-  providers: [Device],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
