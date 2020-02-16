@@ -7,20 +7,30 @@ aside{
     align-items: stretch;
     background-color: $primary-blue;
     #sidebar {
-        min-width: 250px;
+        min-width: 200px;
         max-width: 250px;
         min-height: 100vh;
         color: #fff;
         transition: all 0.3s;
+        padding-top: 19px;
         .sidebar-header {
             @include Header(white);
             padding: 20px;
+            padding-bottom: 0;
             @include dropdown($light-blue);
+            #dropdownAsideButton{
+                font-size:17px;
+                line-height: 1.2;
+            }
+            .smart-home-name{
+                font-size: 12px;
+                text-align: center;
+            }
             .image-circle{
                 background-image: url("../../../../../assets/images/home.png");
                 border-radius:10em;
-                height: 110px;
-                width: 110px;
+                height: 95px;
+                width: 95px;
                 background-repeat: no-repeat;
                 background-size: cover;
                 margin: 0 auto;
@@ -29,7 +39,7 @@ aside{
         ul{
             li{
                 width: 100%;
-                padding-left: 32px;
+                padding-left: 15px;
                 padding-top: 8px;
                 padding-bottom: 8px;
                 position: relative;
@@ -68,7 +78,7 @@ aside{
                 }
                 a{
                     padding: 10px;
-                    font-size: 1.1em;
+                    font-size: 11px;
                     display: block;
                     &:hover{
                         color: $light-blue;

@@ -3,17 +3,118 @@
 
 .table{
     @include Header($text-bright);
+    background-color: $table-background;
+    margin-top: 10px;
     thead{
         tr{
             th{
                 vertical-align: middle;
+                border: none;
+                padding: 7px 25px;
+                font-weight:100;
+                text-align: center;
             }
         }
+       
     }
     tbody{
         tr{
+            position: relative;
+            
+            
             td{
                 vertical-align: middle;
+                border: none;
+                padding: 28px 10px;
+                color: $table-blue-text;
+                position: relative;
+                .circle{
+                    display: flex;
+                    align-items: center;
+                    height: 34px;
+                    width: 34px;
+                    background: $primary-dark-blue;
+                    border-radius: 20px;
+                }
+                .delete-wrapper{
+                    cursor: pointer;
+                    img{
+                        width: 28px;
+                        height: 25px;
+                        margin-top: -7px;
+                    }
+                }
+                .custom-control-input{
+                    background-color: $primary-dark-blue;
+                    border-color: $primary-dark-blue;
+                    outline: 0;
+                    box-shadow: none;
+                    cursor: pointer;
+                        &:checked ~ .custom-control-label::before{
+                            background-color: $primary-dark-blue;
+                            border-color: $primary-dark-blue;
+                            outline: 0;
+                            box-shadow: none;
+                        }
+                        &:checked ~ .custom-control-label{
+                            &::after{
+                                background-color: $light-blue;
+                                outline: 0;
+                                box-shadow: none;
+                            }
+                        }
+                    
+                   
+
+
+                }
+                .custom-control-label{
+                    outline: 0;
+                    box-shadow: none;
+                    outline: 0;
+                    box-shadow: none;
+                    cursor: pointer;
+                    &::before{
+                        background-color: $primary-dark-blue;
+                        border-color: $primary-dark-blue;
+                        top:6px;
+                        height:12px;
+                        outline: 0;
+                        box-shadow: none;
+                    }
+                }
+                .custom-switch{
+                    .custom-control-label{
+                        &::after{
+                            background-color: $unchecked;
+                        }
+                    }
+                } 
+               
+                &:first-child{
+                    &:after{
+                        left:20px;
+                    }
+                }
+                &:last-child{
+                    &:after{
+                        right:20px;
+                    }
+                }
+                &:after{
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom:0;
+                    right:0;
+                    left:0;
+                    height:1px;
+                    background-color: $primary-dark-blue;
+                }
+                *{
+                    display: flex;
+                    justify-content: center;
+                }
             }
         }
     }

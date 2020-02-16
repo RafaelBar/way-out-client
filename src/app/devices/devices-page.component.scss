@@ -3,12 +3,25 @@
 
 .homeblock{
     @include Header($text-bright);
+    padding-top: 34px;
     .row{
         h1{
-            
+            font-size: 30px;
         }
         .addDeviceButton{
-
+            background-image: url("../../assets/images/addButton.png");
+            height:44px;
+            width:44px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: auto;
+            order: 2;
+            margin-right: 16px;
+            cursor:pointer;
         }
     }
+}
+
+.modal-header, .modal-body, .modal-footer{
+    background-color: $popup-background;
 }

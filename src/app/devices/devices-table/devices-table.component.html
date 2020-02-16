@@ -7,33 +7,45 @@
             <th>Status</th>
             <th>Battery</th>
             <th>Date</th>
+            <th></th>
           </tr>
         </thead>
         
         <tbody>
-                <tr *ngFor="let device of devices">
+                <tr *ngFor="let device of devices; let i = index">
                   <td>
                       <div class="img-wrapper"><img [src]="deviceIconMapping[device.DeviceType]" /></div>
                   </td>
                   <td>
-                      <div>Door Switch</div>
+                      <div>{{device.Name}}</div>
                   </td>
                   <td>
-                      <div>Hall</div>
+                      <div>{{deviceLocationMapping[device.Location]}}</div>
                   </td>
                   <td>
                       <div>
                           <div class="custom-control custom-switch">
-                              <input type="checkbox" class="custom-control-input" id="customSwitch1" checked>
-                              <label class="custom-control-label" for="customSwitch1"></label>
+                              <input type="checkbox" class="custom-control-input" id="customSwitch{{i}}" [checked]="device.Status">
+                              <label class="custom-control-label" for="customSwitch{{i}}"></label>
                           </div>
                       </div>
                   </td>
                   <td>
-                      <div class="img-wrapper"><img src="../../assets/images/battery_full.png" /></div>
+                      <div class="img-wrapper">
+                          <div class="circle">
+                            <img *ngIf="device.Battery>50" src="../../../assets/images/battery_full.png" />
+                            <img *ngIf="device.Battery<51 && device.Battery>20" src="../../../assets/images/battery_normal.png" />
+                            <img *ngIf="device.Battery<21" src="../../../assets/images/battery_low.png" />
+                        </div>
+                      </div>
                   </td>
                   <td>
-                      <div>Date</div>
+                      <div>{{device.LastSuccessfulConnection | date: 'dd/MM/yyyy'}}</div>
+                  </td>
+                  <td>
+                      <div class="delete-wrapper" (click)="deleteDevice(device.Id)">
+                          <img src="../../../assets/images/trash.png" />
+                      </div>
                   </td>
                 </tr>
           </tbody>

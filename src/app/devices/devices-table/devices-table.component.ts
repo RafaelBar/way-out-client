@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Device, DeviceType } from "../models/device.model";
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Device, DeviceType, Location } from "../models/device.model";
 
 @Component({
   selector: 'app-devices-table',
@@ -8,6 +8,8 @@ import { Device, DeviceType } from "../models/device.model";
 })
 export class DevicesTableComponent {
   @Input() devices: Device[];
+  @Output() deleteDeviceClick = new EventEmitter<string>();
+
   deviceIconMapping: {} = {
     [DeviceType.CAMERA]: "../../assets/images/camera.png",
     [DeviceType.DOORSWITCH]: "../../assets/images/door_switch.png",
@@ -16,7 +18,16 @@ export class DevicesTableComponent {
     [DeviceType.SMOKEDETECTOR]: "../../assets/images/smoke_detector.png",
     [DeviceType.THERMOSTAT]: "../../assets/images/thermostat.png",
   };
+  deviceLocationMapping: {} = {
+    [Location.BATHROOM]: "Bathroom",
+    [Location.HALL]: "Hall",
+    [Location.KITCHEN]: "Kitchen",
+    [Location.LIVINGROOM]: "LivingRoom"
+  }
 
   constructor() { }
 
+  deleteDevice(deviceId: string) {
+    this.deleteDeviceClick.emit(deviceId);
+  }
 }
