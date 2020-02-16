@@ -7,11 +7,15 @@ import { Device } from '../models/device.model';
   providedIn: 'root'
 })
 export class DeviceService {
-  routers: any = [];
   constructor(private httpClient: HttpClient) { 
   }
 
   getAllDevices(): Observable<Device[]> {
     return this.httpClient.get<Device[]>('http://localhost:3000/all');
   }
+
+  getDeviceTypeById(id): Observable<Device[]> {
+    return this.httpClient.get<Device[]>('http://localhost:3000/id/' + id);
+  }
+  
 }

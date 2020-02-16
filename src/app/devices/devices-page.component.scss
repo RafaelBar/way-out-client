@@ -21,7 +21,153 @@
         }
     }
 }
-
-.modal-header, .modal-body, .modal-footer{
-    background-color: $popup-background;
+#exampleModal{
+    background-color: $modal-shadow-background;
+    .modal-dialog{
+        max-width:960px;
+        border-radius: 15px;
+        @include modal-shadow;
+        overflow: hidden;
+        .modal-content{
+            background: none;
+        }
+        .modal-header, .modal-body, .modal-footer{
+            background-color: $popup-background;
+            border:none;
+        }
+        .error{
+            color:$error;
+        }
+        .success{
+            color:$success;
+        }
+        .modal-footer{
+            padding: 35px 26px;
+            margin-right: -156px;
+            .btn{
+                margin-top: 35px;
+            }
+            .btn-primary{
+                padding: 7px 23px;
+                font-size: 13px;
+                background-color: $light-blue;
+            }
+            .btn-secondary{
+                font-size: 13px;
+                box-shadow: none;
+                background: none;
+                border: none;
+                padding: 0px 29px;
+            }
+        }
+        .modal-header{
+            padding: 33px 37px;
+            padding-right: 0;
+            .close{
+                margin-top: -40px;
+                margin-right: -4px;
+            }
+        }
+        .modal-body{
+            padding-top: 8px;
+            .body-container{
+                max-width: 670px;
+                /* Chrome, Safari, Edge, Opera */
+                input::-webkit-outer-spin-button,
+                input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+                }
+                .preview-device{
+                    padding-right: 40px;
+                    .img{
+                        background: $primary-dark-blue;
+                        height: 258px;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        position: relative;
+                        img{
+                            max-height: 140px;
+                            width: auto;
+                            height: 133px;
+                            margin: 0 auto;
+                            display: block;
+                            margin-top: 23px;
+                        }
+                        .preview-text{
+                            text-align: center;
+                            bottom: 24px;
+                            position: absolute;
+                            font-size: 14px;
+                            color:$table-blue-text;
+                        }
+                    }
+                }
+                /* Firefox */
+                input[type=number] {
+                -moz-appearance:textfield;
+                }
+                form{
+                    padding-left: 40px;
+                    .form-group{
+                        span{
+                            position: absolute;
+                            right: -10px;
+                            top: 30px;
+                        }
+                        .form-control{
+                            background-color:$primary-dark-blue;
+                            border:none;
+                            height:31px;
+                            color: $light-blue;
+                            font-size:13px;
+                            &select{
+                                .option{
+                                    &:first-child{
+                                        color:$table-blue-text;
+                                    }
+                                }
+                            }
+                            &:focus{
+                                box-shadow:none;
+                                border:2px solid $light-blue;
+                            }
+                        }
+                        .form-label{
+                            margin-bottom: 3px;
+                        }
+                    }
+                    .form-check{
+                        padding: 0;
+                        label{
+                            font-size:12px;
+                            padding-left: 18px;
+                        }
+                        input{
+                            display: none;
+                            &:checked{
+                                & ~ .custom-checkbox{
+                                    border: 2px solid $primary-dark-blue;
+                                    background:$light-blue;
+                                }
+                            }
+                        }
+                        .custom-checkbox{
+                            width:12px;
+                            height:12px;
+                            border-radius:4px;
+                            border: 2px solid $primary-dark-blue;
+                            background: $text-bright;
+                            margin: 0;
+                            margin-right: 5px;
+                            position: absolute;
+                            top:7px;
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+

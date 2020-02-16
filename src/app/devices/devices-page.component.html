@@ -1,45 +1,72 @@
 <div class="container-fluid homeblock">
     <div class="row">
         <h1 class="col-auto title">Devices</h1>
-        <div (click)="open(content)" class="addDeviceButton"></div>
+        <div class="addDeviceButton" data-toggle="modal" data-target="#exampleModal"></div>
     </div>
     <app-devices-table 
       [devices]="devices"
       (deleteDeviceClick)="handleDeleteDeviceClick($event)">
     </app-devices-table>
-    <ng-template #content let-modal>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">Add a new device</h4>
-          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
+          <h5 class="modal-title" id="exampleModalLabel">Add a new device</h5>
+          <button (click)="successMSG=''" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <img src="../../assets/images/closeModal.png"/>
           </button>
         </div>
         <div class="modal-body">
-          <form>
-            <div class="form-group">
-                <input id="typeahead-basic" type="text" class="form-control" [(ngModel)]="MAC"/>
-            </div>
-            <div class="form-group">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle dropdownButtonStyle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Username
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="#">Action1</a>
-                      <a class="dropdown-item" href="#">Action2</a>
-                      <a class="dropdown-item" href="#">Action3</a>
-                    </div>
+          <div class="container body-container">
+            <div class="row">
+              <div class="col-md-6 preview-device">
+                <div class="img">
+                  <img class="col-sm-12" [src]="deviceMACMapping[deviceTypeResponse]"/>
+                  <div class="preview-text col-sm-12">Device Preview</div>
+                </div>
+                
+              </div>
+              <form #addDeviceForm="ngForm" name="addDeviceForm" class="col-md-6" (ngSubmit)="addDevice()">
+                  <div class="form-group">
+                    <label class="form-label" for="formGroupExampleInput">MAC Address</label>
+                    <input [(ngModel)]="MAC" required (ngModelChange)="getDeviceTypeByMac(MAC)" name="MACaddress" type="number" class="form-control" id="formGroupExampleInput">
+                    <span *ngIf="deviceMACMapping[deviceTypeResponse]"><img src="../../assets/images/successIcon.png"/></span>
                   </div>
-            </div>
-            <div class="form-group">
-                <input id="typeahead-basic2" type="text" class="form-control" [(ngModel)]="Name"/>
-            </div>
-          </form>
+                  <div class="form-group">
+                      <label class="form-label" for="exampleFormControlSelect1">Device Location</label>
+                      <select [(ngModel)]="deviceLocation" name="deviceLocation" required class="form-control" id="exampleFormControlSelect1">
+                        <option value="" disabled selected>Select</option>
+                        <option value="Hall">Hall</option>
+                        <option value="LivingRoom">LivingRoom</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Kitchen">Kitchen</option>
+                      </select>
+                    </div>
+                  <div class="form-group">
+                    <label  class="form-label" for="formGroupExampleInput2">Device Name</label>
+                    <input autocomplete="off" required [(ngModel)]="deviceName" name="deviceName" type="text" class="form-control" id="formGroupExampleInput2">
+                  </div>
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="custom-checkbox" for="exampleCheck1"></label>
+                      <label class="form-check-label" for="exampleCheck1">Display in overview page</label>
+                      
+                    </div>
+                    <span class="error" *ngIf="(serverStatus == '1' || serverStatus == '2')">{{deviceTypeResponse}}</span>
+                    <span class="success" *ngIf="(serverStatus == '0')">{{successMSG}}</span>
+                    <div class="modal-footer">
+                        
+                        <button (click)="successMSG=''" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button [disabled]="(!addDeviceForm.form.valid) || (serverStatus == '1' || serverStatus == '2')" type="submit" value="submit" class="btn btn-primary">Add device</button>
+                      </div>
+                </form>
+              </div>
+          </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">CANCEL</button>
-          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">ADD DEVICE</button>
-        </div>
-      </ng-template>
+      </div>
+    </div>
+  </div>
       
 </div>
