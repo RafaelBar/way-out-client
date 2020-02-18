@@ -55,7 +55,6 @@ export class DevicesPageComponent implements OnInit {
         this.serverStatus = "100"; //device can be added to the list
         this.deviceTypeResponse = res;
       }
-        
     });
   }
 
@@ -64,6 +63,7 @@ export class DevicesPageComponent implements OnInit {
   }
 
   addDevice() {
+    this.deviceToAdd = {};
     this.deviceToAdd.Id = this.MAC.toString();
     this.deviceToAdd.Location = this.deviceLocation;
     this.deviceToAdd.Name = this.deviceName;
@@ -78,5 +78,6 @@ export class DevicesPageComponent implements OnInit {
     this.successMSG = "Added to list";
     this.deviceTypeResponse = null;
     this.serverStatus = "0"; //status 1 meaning device added succesfuly
+    console.log(this.devices);
   }
 }
